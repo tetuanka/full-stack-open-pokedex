@@ -14,7 +14,6 @@ jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
     steps:
-      - uses: rjstone/discord-webhook-notify@v1
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -25,16 +24,23 @@ jobs:
         run: npm run eslint
       - name: build
         run: npm run build
-        if: ${{ failure() }}
+
+      - name: Notify Discord on build success
+        uses: rjstone/discord-webhook-notify@v1
+        if: success()
         with:
-            severity: error
-            details: Test Failed!
-            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-        if: ${{ success() }}
+          severity: info
+          details: Build Succeeded!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
+      - name: Notify Discord on build failure
+        uses: rjstone/discord-webhook-notify@v1
+        if: failure()
         with:
-            severity: info
-            details: Test Succeeded!
-            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          severity: error
+          details: Build Failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
       - name: test
         run: npm run test
       - name: e2e tests
