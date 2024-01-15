@@ -1,12 +1,23 @@
-# fly.toml app configuration file generated for full-stack-open-pokedex-1 on 2024-01-11T19:18:01+02:00
+# fly.toml app configuration file generated for full-stack-open-pokedex-tetuanka on 2024-01-15T11:01:39+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "full-stack-open-pokedex-1"
-primary_region = "arn"
+app = "full-stack-open-pokedex-tetuanka"
+primary_region = "ams"
+
+[deploy]
+  release_command = "npm run build"
+
+[processes]
+  app = "node app.js"
 
 [build]
+  [build.args]
+    NODE_VERSION = "16.19.1"
+
+[env]
+  PORT = "3000"
 
 [http_service]
   internal_port = 3000
