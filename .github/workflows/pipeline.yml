@@ -46,7 +46,7 @@ jobs:
             echo "Commit message contains 'skip', skipping deployment."
             exit 0
           else
-            echo "Commit message does not contain 'skip', proceeding with deployment."
+            echo "Commit message don't contain 'skip', proceeding with deployment."
           fi
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.64.0
