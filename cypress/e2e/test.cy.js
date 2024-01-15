@@ -1,11 +1,12 @@
 describe('Pokedex', function() {
   it('front page can be opened', function() {
-    test.cy.visit('http://localhost:5000')
-    test.cy.contains('ivysaur')
-    test.cy.contains('Pokémon and Pokémon character names are trademarks of Nintendo.')
+    cy.visit('http://localhost:3000')
+    cy.contains('ivysaur')
+    cy.contains('Pokémon and Pokémon character names are trademarks of Nintendo.')
   })
   it('pokemon page can be navigated to', function() {
-    test.cy.visit('http://localhost:5000/pokemon/nidorina')
-    test.cy.contains('hustle')
+    cy.visit('http://localhost:3000')
+    cy.contains('nidorino').click()
+    cy.contains('hustle')
   })
 })
