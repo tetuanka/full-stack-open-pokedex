@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  health check:
+  health_check:
     runs-on: ubuntu-20.04
     steps:
       - name: Check the deployed service URL
