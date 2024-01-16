@@ -1,8 +1,9 @@
 name: Health check
-  on:
-    push:
-      branches:
-        - master
+
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   health check:
