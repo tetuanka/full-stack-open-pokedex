@@ -16,7 +16,7 @@ jobs:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
       - name: Notify Discord on new deployment
         uses: rjstone/discord-webhook-notify@v1
-        if: succeeded()
+        if: success()
         with:
           severity: info
           description: to [https://full-stack-open-pokedex-tetuanka.fly.dev/](https://full-stack-open-pokedex-tetuanka.fly.dev/) by ${{ github.actor }}
