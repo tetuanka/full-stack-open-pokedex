@@ -19,7 +19,7 @@ jobs:
         if: success()
         with:
           severity: info
-          description: to [https://full-stack-open-pokedex-tetuanka.fly.dev/](https://full-stack-open-pokedex-tetuanka.fly.dev/) by ${{ github.actor }}
+          description: to <https://full-stack-open-pokedex-tetuanka.fly.dev/> by ${{ github.actor }}
           text: A new version of Pokedex deployed
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
     if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ', '), 'skip')}}
