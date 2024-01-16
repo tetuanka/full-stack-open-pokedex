@@ -31,7 +31,7 @@ jobs:
         with:
           severity: info
 
-          description: commit [${{ github.event.before }}...${{ github.sha }}](${{ github.event.compare }}) by ${{ github.actor }}
+          description: commit [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}) by ${{ github.actor }}
           text: Build succeeded
 
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
