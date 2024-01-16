@@ -30,7 +30,7 @@ jobs:
         if: success()
         with:
           severity: info
-          details: Build Succeeded!
+          details: Build Succeeded
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
       - name: Notify Discord on build failure
